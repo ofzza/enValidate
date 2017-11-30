@@ -2,6 +2,10 @@
 // GULP TASK: Copy HTML
 // =====================================================================================================================
 
+// Require dependencies
+const util    = require('gulp-util'),
+      minify  = require('gulp-htmlmin');
+
 // Initialize tasks
 module.exports = (gulp) => {
 
@@ -9,6 +13,7 @@ module.exports = (gulp) => {
   gulp.task('build@html', () => {
     return gulp
       .src('./src/**/*.html')
+      .pipe(util.env.production ? minify({ collapseWhitespace: true, conservativeCollapse: true }) : util.noop())
       .pipe(gulp.dest('./dist'));
   });
 

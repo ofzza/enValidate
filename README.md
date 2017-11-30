@@ -23,6 +23,12 @@ $ npm start
 $ npm test
 ```
 
+- To build for production run:
+
+```
+npm run-script production
+```
+
 
 ## Code structure
 

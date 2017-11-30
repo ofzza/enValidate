@@ -6,6 +6,7 @@
 const path        = require('path'),
       util        = require('gulp-util'),
       babel       = require('gulp-babel'),
+      minify      = require('gulp-minify'),
       sourcemaps  = require('gulp-sourcemaps');
 
 // Initialize tasks
@@ -23,6 +24,7 @@ module.exports = (gulp) => {
         filenameRelative: true
       }))
       .pipe(!util.env.production ? sourcemaps.write('.', { includeContent: false, sourceRoot: sourceRootFn }) : util.noop())
+      .pipe(util.env.production ? minify({ noSource: true, ext: { min: '.js' } }) : util.noop())
       .pipe(gulp.dest('./dist'));
   });
 
