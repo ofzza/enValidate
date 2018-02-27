@@ -4,18 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _envalidate = require('./envalidate');
 
-// =====================================================================================================================
+var _envalidate2 = _interopRequireDefault(_envalidate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _envalidate2.default; // =====================================================================================================================
 // ENTITY VALIDATION
 // =====================================================================================================================
 
 // Export EnValidate class as default
-var EnValidate = function EnValidate() {
-  _classCallCheck(this, EnValidate);
-
-  throw new Error('Not Implemented!');
-};
-
-exports.default = EnValidate;
 //# sourceMappingURL=index.js.map

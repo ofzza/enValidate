@@ -1,7 +1,11 @@
 // =====================================================================================================================
-// ENTITY VALIDATION
+// Tests Entity Validation using YUP
 // =====================================================================================================================
+let Yup = require('yup');
 
-// Export EnValidate class as default
-import EnValidate from './envalidate';
-export default EnValidate;
+// Export testing configuration for JOI
+module.exports = {
+  name: 'YUP',
+  config: { yup: Yup },
+  schema: Yup.string().uppercase()
+};

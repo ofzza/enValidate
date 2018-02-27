@@ -2,92 +2,6 @@
   "version": "0.2.0",
   "configurations": [
 
-    // Launch: Source 
-    {
-      "name": "Launch: Source",
-      "type": "node",
-      "request": "launch",
-      "protocol": "inspector",
-
-      "cwd": "${workspaceRoot}",
-      "program": "${workspaceRoot}/src/index.js",
-      "sourceMaps": false,
-      "args": [ ],
-      "preLaunchTask": null,
-      "runtimeExecutable": null,
-      "runtimeArgs": [ "--nolazy" ],
-      "env": {
-          "NODE_ENV": "development"
-      },
-      "console": "internalConsole",
-      "outputCapture": "std",
-      "useWSL": false
-    },
-    {
-      "name": "Launch: Source (WSL)",
-      "type": "node",
-      "request": "launch",
-      "protocol": "inspector",
-
-      "cwd": "${workspaceRoot}",
-      "program": "${workspaceRoot}/src/index.js",
-      "sourceMaps": false,
-      "args": [ ],
-      "preLaunchTask": null,
-      "runtimeExecutable": null,
-      "runtimeArgs": [ "--nolazy" ],
-      "env": {
-          "NODE_ENV": "development"
-      },
-      "console": "internalConsole",
-      "outputCapture": "std",
-      "useWSL": true
-    },
-    
-    // Launch: Distributable
-    {
-      "name": "Launch: Distributable",
-      "type": "node",
-      "request": "launch",
-      "protocol": "inspector",
-      
-      "cwd": "${workspaceRoot}",
-      "program": "${workspaceRoot}/src/index.js",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-      "sourceMaps": true,
-      "args": [ ],
-      "preLaunchTask": null,
-      "runtimeExecutable": null,
-      "runtimeArgs": [ "--nolazy" ],
-      "env": {
-          "NODE_ENV": "development"
-      },
-      "console": "internalConsole",
-      "outputCapture": "std",
-      "useWSL": false
-    },
-    {
-      "name": "Launch: Distributable (WSL)",
-      "type": "node",
-      "request": "launch",
-      "protocol": "inspector",
-      
-      "cwd": "${workspaceRoot}",
-      "program": "${workspaceRoot}/src/index.js",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-      "sourceMaps": true,
-      "args": [ ],
-      "preLaunchTask": null,
-      "runtimeExecutable": null,
-      "runtimeArgs": [ "--nolazy" ],
-      "env": {
-          "NODE_ENV": "development"
-      },
-      "console": "internalConsole",
-      "outputCapture": "std",
-      "useWSL": true
-    },
-
     // Launch: Tests
     {
       "name": "Launch: Tests",
@@ -99,7 +13,7 @@
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "sourceMaps": true,
       "args": [
-        "tests/**/*.js",
+        "tests/*.js",
         "--no-timeouts"
       ],
       "preLaunchTask": null,
@@ -122,7 +36,7 @@
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "sourceMaps": true,
       "args": [
-        "tests/**/*.js",
+        "tests/*.js",
         "--no-timeouts"
       ],
       "preLaunchTask": null,

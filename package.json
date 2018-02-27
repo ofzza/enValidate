@@ -1,6 +1,6 @@
 {
   "name": "envalidate",
-  "version": "0.0.1",
+  "version": "2.0.2",
   "description": "Schema based data-model validation",
   "main": "./dist/index.js",
   "scripts": {
@@ -26,22 +26,17 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^7.0.0",
     "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^3.9.0",
     "gulp-eslint": "^4.0.0",
-    "gulp-html-lint": "0.0.2",
-    "gulp-htmlmin": "^3.0.0",
     "gulp-jscs": "^4.0.0",
-    "gulp-less": "^3.3.2",
-    "gulp-lesshint": "^4.0.0",
-    "gulp-minify": "^2.1.0",
     "gulp-mocha": "^4.0.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-sass-lint": "^1.3.4",
-    "gulp-scss-lint": "^0.5.0",
-    "gulp-stylelint": "^5.0.0"
+    "gulp-sourcemaps": "^2.6.4",
+    "joi": "^13.1.2",
+    "joi-browser": "^13.0.1",
+    "yup": "^0.24.1"
   },
   "dependencies": {
     "colors": "^1.1.2",
+    "entt": "^2.0.1",
     "lodash": "^4.17.4"
   }
 }

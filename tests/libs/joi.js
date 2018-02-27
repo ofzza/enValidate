@@ -1,7 +1,11 @@
 // =====================================================================================================================
-// ENTITY VALIDATION
+// Tests Entity Validation using JOI
 // =====================================================================================================================
+let Joi = require('joi');
 
-// Export EnValidate class as default
-import EnValidate from './envalidate';
-export default EnValidate;
+// Export testing configuration for JOI
+module.exports = {
+  name: 'JOI',
+  config: { joi: Joi },
+  schema: Joi.string().uppercase()
+};
