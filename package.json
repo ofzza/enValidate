@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "colors": "^1.1.2",
-    "entt": "^2.0.1",
+    "entt": "^2.0.2",
     "lodash": "^4.17.4"
   }
 }
