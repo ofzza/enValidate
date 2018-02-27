@@ -11,7 +11,7 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _dist = require('../../enTT/dist');
+var _entt = require('entt');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,8 +25,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // Load dependencies
 
-
-// TODO: Change to NPM instance
 
 /**
  * EnValidate base class, EnTT Extension implementing popular validation libraries for use with EnTT
@@ -128,7 +126,7 @@ var EnValidate = function (_ValidationExtension) {
   }]);
 
   return EnValidate;
-}(_dist.ValidationExtension);
+}(_entt.ValidationExtension);
 
 /**
  * Checks if passed schema is a JOI schema

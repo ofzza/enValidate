@@ -4,7 +4,7 @@
 
 // Load dependencies
 import _ from 'lodash';
-import { ValidationExtension } from '../../enTT/dist';   // TODO: Change to NPM instance
+import { ValidationExtension } from 'entt';
 
 /**
  * EnValidate base class, EnTT Extension implementing popular validation libraries for use with EnTT

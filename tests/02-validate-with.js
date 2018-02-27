@@ -3,7 +3,7 @@
 // =====================================================================================================================
 let _           = require('lodash'),
     assert      = require('assert'),
-    EnTT        = require('../../enTT/dist').default,  // TODO: Change to NPM instance
+    EnTT        = require('entt').default,
     EnValidate  = require('../dist').default;
 
 // Test JOI (original)
