@@ -53,12 +53,12 @@ function validateWithLibrary ({ name, config, schema }) {
       const e = new MyExtendedEntity();
 
       // Should validate when validation function specified
-      e.foo = 'QUOX';
+      e.foo = 'QUX';
       assert.ok(!e.validation.foo);
-      e.foo = 'quox';
+      e.foo = 'qux';
       assert.ok(e.validation.foo);
       assert.equal(e.validation.foo.property, 'foo');
-      assert.equal(e.validation.foo.value, 'quox');
+      assert.equal(e.validation.foo.value, 'qux');
 
     });
 
@@ -69,12 +69,12 @@ function validateWithLibrary ({ name, config, schema }) {
       const e = new MyExtendedEntity();
 
       // Should use 3rd party lib for validation
-      e.bar = 'QUOX';
+      e.bar = 'QUX';
       assert.ok(!e.validation.bar);
-      e.bar = 'quox';
+      e.bar = 'qux';
       assert.ok(e.validation.bar);
       assert.equal(e.validation.bar.property, 'bar');
-      assert.equal(e.validation.bar.value, 'quox');
+      assert.equal(e.validation.bar.value, 'qux');
 
     });
 
@@ -85,12 +85,12 @@ function validateWithLibrary ({ name, config, schema }) {
       const e = new MyExtendedEntity();
 
       // Should transalate 3rd party lib as short-hand property configuration
-      e.baz = 'QUOX';
+      e.baz = 'QUX';
       assert.ok(!e.validation.baz);
-      e.baz = 'quox';
+      e.baz = 'qux';
       assert.ok(e.validation.baz);
       assert.equal(e.validation.baz.property, 'baz');
-      assert.equal(e.validation.baz.value, 'quox');
+      assert.equal(e.validation.baz.value, 'qux');
 
     });
 

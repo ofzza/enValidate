@@ -77,12 +77,12 @@ var EnValidate = function (_ValidationExtension) {
     key: 'processShorthandPropertyConfiguration',
     value: function processShorthandPropertyConfiguration(propertyConfiguration) {
       // Check if shorthand is a JOI schema (if JOI instance configured)
-      if (isJoi(propertyConfiguration)) {
+      if (isJoi.bind(this)(propertyConfiguration)) {
         // Replace with validation configuration
         return { validate: propertyConfiguration };
       }
       // Check if shorthand is a YUP schema (if YUP instance configured)
-      if (isYup(propertyConfiguration)) {
+      if (isYup.bind(this)(propertyConfiguration)) {
         // Replace with validation configuration
         return { validate: propertyConfiguration };
       }
@@ -102,7 +102,7 @@ var EnValidate = function (_ValidationExtension) {
       var _this2 = this;
 
       // Check if shorthand is a JOI schema (if JOI instance configured)
-      if (isJoi(propertyConfiguration.validate)) {
+      if (isJoi.bind(this)(propertyConfiguration.validate)) {
         // Wrap in a validation function
         var schema = propertyConfiguration.validate;
         propertyConfiguration.validate = function (value) {
@@ -113,7 +113,7 @@ var EnValidate = function (_ValidationExtension) {
         };
       }
       // Check if shorthand is a YUP schema (if YUP instance configured)
-      if (isYup(propertyConfiguration.validate)) {
+      if (isYup.bind(this)(propertyConfiguration.validate)) {
         // Wrap in a validation function
         var _schema = propertyConfiguration.validate;
         propertyConfiguration.validate = function (value) {
@@ -139,7 +139,7 @@ var EnValidate = function (_ValidationExtension) {
 
 exports.default = EnValidate;
 function isJoi(schema) {
-  return schema && _lodash2.default.isObject(schema) && schema.isJoi === true;
+  return this.validationLibs.joi && schema && _lodash2.default.isObject(schema) && schema.isJoi === true;
 }
 
 /**
@@ -148,6 +148,6 @@ function isJoi(schema) {
  * @returns {bool} If passed schema is a YUP schema
  */
 function isYup(schema) {
-  return schema && _lodash2.default.isObject(schema) && schema.__isYupSchema__ === true;
+  return this.validationLibs.yup && schema && _lodash2.default.isObject(schema) && schema.__isYupSchema__ === true;
 }
 //# sourceMappingURL=envalidate.js.map

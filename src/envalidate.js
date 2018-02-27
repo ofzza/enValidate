@@ -41,12 +41,12 @@ export default class EnValidate extends ValidationExtension {
    */
   processShorthandPropertyConfiguration (propertyConfiguration) {
     // Check if shorthand is a JOI schema (if JOI instance configured)
-    if (isJoi(propertyConfiguration)) {
+    if (isJoi.bind(this)(propertyConfiguration)) {
       // Replace with validation configuration
       return { validate: propertyConfiguration };
     }
     // Check if shorthand is a YUP schema (if YUP instance configured)
-    if (isYup(propertyConfiguration)) {
+    if (isYup.bind(this)(propertyConfiguration)) {
       // Replace with validation configuration
       return { validate: propertyConfiguration };
     }
@@ -62,7 +62,7 @@ export default class EnValidate extends ValidationExtension {
    */
   updatePropertyConfiguration (propertyConfiguration) {
     // Check if shorthand is a JOI schema (if JOI instance configured)
-    if (isJoi(propertyConfiguration.validate)) {
+    if (isJoi.bind(this)(propertyConfiguration.validate)) {
       // Wrap in a validation function
       const schema = propertyConfiguration.validate;
       propertyConfiguration.validate = (value) => {
@@ -71,7 +71,7 @@ export default class EnValidate extends ValidationExtension {
       };
     }
     // Check if shorthand is a YUP schema (if YUP instance configured)
-    if (isYup(propertyConfiguration.validate)) {
+    if (isYup.bind(this)(propertyConfiguration.validate)) {
       // Wrap in a validation function
       const schema = propertyConfiguration.validate;
       propertyConfiguration.validate = (value) => {
@@ -92,7 +92,8 @@ export default class EnValidate extends ValidationExtension {
  * @returns {bool} If passed schema is a JOI schema
  */
 function isJoi (schema) {
-  return schema
+  return this.validationLibs.joi
+      && schema
       && _.isObject(schema)
       && (schema.isJoi === true);
 }
@@ -103,7 +104,8 @@ function isJoi (schema) {
  * @returns {bool} If passed schema is a YUP schema
  */
 function isYup (schema) {
-  return schema
+  return this.validationLibs.yup
+      && schema
       && _.isObject(schema)
       && (schema.__isYupSchema__ === true);
 }
