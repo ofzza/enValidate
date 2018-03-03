@@ -1,1 +1,76 @@
-"use strict";function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function _classCallCheck(e,r){if(!(e instanceof r))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _createClass=function(){function e(e,r){for(var t=0;t<r.length;t++){var n=r[t];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(r,t,n){return t&&e(r.prototype,t),n&&e(r,n),r}}(),_child_process=require("child_process"),_html=require("./server/html"),_html2=_interopRequireDefault(_html),Test=function(){function e(){_classCallCheck(this,e)}return _createClass(e,null,[{key:"run",value:function(){var e=null;try{e=(""+(0,_child_process.execSync)("ver")).replace(/\r/g,"").replace(/\n/g,"")}catch(e){}var r=null;try{r=(""+(0,_child_process.execSync)("uname -mrs")).replace(/\r/g,"").replace(/\n/g,"")}catch(e){}console.log("OS version:   "+(e||r||"Detection failed!")),console.log("Node version: "+process.version),_html2.default.run()}}]),e}();exports.default=Test,Test.run();
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // =====================================================================================================================
+// TEST SCRIPT: Dummy script, testing GULP tasks
+// =====================================================================================================================
+
+// Test module importing
+
+
+var _child_process = require('child_process');
+
+var _html = require('./server/html');
+
+var _html2 = _interopRequireDefault(_html);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Testing class definition
+ * @export
+ * @class Test
+ */
+var Test = function () {
+  function Test() {
+    _classCallCheck(this, Test);
+  }
+
+  _createClass(Test, null, [{
+    key: 'run',
+
+    /**
+     * Outputs to console
+     * @static
+     * @memberof Test
+     */
+    value: function run() {
+      // Get system information
+      var windowsVersion = null;
+      try {
+        windowsVersion = ('' + (0, _child_process.execSync)('ver')).replace(/\r/g, '').replace(/\n/g, '');
+      } catch (err) {
+        err;
+      }
+
+      var linuxVersion = null;
+      try {
+        linuxVersion = ('' + (0, _child_process.execSync)('uname -mrs')).replace(/\r/g, '').replace(/\n/g, '');
+      } catch (err) {
+        err;
+      }
+
+      // Prompt system info
+      console.log('OS version:   ' + (windowsVersion || linuxVersion || 'Detection failed!'));
+      console.log('Node version: ' + process.version);
+
+      // Execute inner script file
+      _html2.default.run();
+    }
+  }]);
+
+  return Test;
+}();
+
+// Run test statuc method
+
+
+exports.default = Test;
+Test.run();
+//# sourceMappingURL=index.js.map
