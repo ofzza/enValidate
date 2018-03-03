@@ -22,13 +22,13 @@ import EnTT from 'entt';
 import EnValidate from 'envalidate';
 // Import JOI and/or YUP validation library
 import joi from 'joi';  // Will also work with lite version: 'joi-browser'
-import yap from 'yap';
+import yup from 'yup';
 
 // Define an EnTT class with validated properties using JOI and YAP
 class MyModel extends EnTT {
   static get includes () {
     // Include EnValidate extension passing instances of Joi and Yap
-    return [ new EnValidate({ joi, yap }) ];
+    return [ new EnValidate({ joi, yup }) ];
   }
   static get props () {
     return {
@@ -37,7 +37,7 @@ class MyModel extends EnTT {
       // Extends validation to accept Yup schema instead of a function
       bar: { validate: yup.string().uppercase() },
       // Accepts Joi schema as short-hand property configuration
-      baz: joi.string().uppercase()
+      baz: joi.string().uppercase(),
       // Accepts Yup schema as short-hand property configuration
       qux: yup.string().uppercase()
     };

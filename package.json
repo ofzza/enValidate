@@ -5,14 +5,23 @@
   "main": "./dist/index.js",
   "scripts": {
     "start": "gulp",
+    "build": "gulp build",
     "test": "gulp test"
   },
+  "pre-commit": [
+    "build",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ofzza/enValidate.git"
   },
   "keywords": [
-    "validation"
+    "entt",
+    "entity",
+    "validation",
+    "joi",
+    "yup"
   ],
   "author": "ofzza",
   "license": "MIT",
@@ -23,6 +32,7 @@
   "devDependencies": {
     "babel-core": "*",
     "babel-preset-esnext": "*",
+    "colors": "^1.1.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^7.0.0",
     "gulp-clean": "^0.3.2",
@@ -32,10 +42,10 @@
     "gulp-sourcemaps": "^2.6.4",
     "joi": "^13.1.2",
     "joi-browser": "^13.0.1",
+    "pre-commit": "^1.2.2",
     "yup": "^0.24.1"
   },
   "dependencies": {
-    "colors": "^1.1.2",
     "entt": "^2.0.2",
     "lodash": "^4.17.4"
   }
