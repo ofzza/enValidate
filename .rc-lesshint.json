@@ -17,7 +17,9 @@
     "exclude": []
   },
   "importantRule": true,
-  "importPath": true,
+  "importPath": {
+    "exclude": []
+  },
   "maxCharPerLine": { "limit": 80 },
   "newlineAfterBlock": false,
   "propertyOrdering": false,
