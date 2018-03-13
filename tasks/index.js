@@ -22,10 +22,11 @@ module.exports = () => {
   // Define tasks
   const tasks = _.reduce(paths, (tasks, path) => {
     // Initialize tasks' definitions
-    let taskNames = require(path)(gulp),
-        localTasks = [];
+    let taskNames = require(path)(gulp);
     // Loop through defined tasks
     _.forEach((_.isArray(taskNames) ? taskNames : [ taskNames ]), (taskNames) => {
+      // Initialize storage of local tasks
+      let localTasks = [];
       // Collect test tasks
       if (taskNames && taskNames.test)  {
         _.forEach((_.isArray(taskNames.test) ? taskNames.test : [ taskNames.test ]), (task) => {
