@@ -52,7 +52,7 @@ All JS source code should be located inside the `./src` directory expecting to b
 
 ### Custom tasks
 
-Custom tasks are to be placed in `./tasks` directory and should each export a function taking as it's parameter an instance of `gulp` and returning and object of the following structure:
+Custom tasks are to be placed in `./tasks` directory and should each export a function taking as it's parameter an instance of `gulp` and returning and object (or array of objects) of the following structure:
 ```
 { test: string|string[], build: string|string[], watch: string|string[] }
 ```

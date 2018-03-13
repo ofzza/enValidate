@@ -24,27 +24,31 @@ module.exports = () => {
     // Initialize tasks' definitions
     let taskNames = require(path)(gulp),
         localTasks = [];
-    // Collect test tasks
-    if (taskNames && taskNames.test)  {
-      _.forEach((_.isArray(taskNames.test) ? taskNames.test : [ taskNames.test ]), (task) => {
-        tasks.test.push(task);
-        localTasks.push(task);
-      });
-    }
-    // Collect build tasks
-    if (taskNames && taskNames.build) {
-      _.forEach((_.isArray(taskNames.build) ? taskNames.build : [ taskNames.build ]), (task) => {
-        tasks.build.push(task);
-        localTasks.push(task);
-      });
-    }
-    // Collect wach patterns and associate with tasks
-    if (taskNames && taskNames.watch) {
-      _.forEach((_.isArray(taskNames.watch) ? taskNames.watch : [ taskNames.watch ]), (pattern) => {
-        if (!tasks.watch[pattern]) { tasks.watch[pattern] = []; }
-        _.forEach(localTasks, (task) => { tasks.watch[pattern].push(task); });
-      });
-    }
+    // Loop through defined tasks
+    _.forEach((_.isArray(taskNames) ? taskNames : [ taskNames ]), (taskNames) => {
+      // Collect test tasks
+      if (taskNames && taskNames.test)  {
+        _.forEach((_.isArray(taskNames.test) ? taskNames.test : [ taskNames.test ]), (task) => {
+          tasks.test.push(task);
+          localTasks.push(task);
+        });
+      }
+      // Collect build tasks
+      if (taskNames && taskNames.build) {
+        _.forEach((_.isArray(taskNames.build) ? taskNames.build : [ taskNames.build ]), (task) => {
+          tasks.build.push(task);
+          localTasks.push(task);
+        });
+      }
+      // Collect wach patterns and associate with tasks
+      if (taskNames && taskNames.watch) {
+        _.forEach((_.isArray(taskNames.watch) ? taskNames.watch : [ taskNames.watch ]), (pattern) => {
+          if (!tasks.watch[pattern]) { tasks.watch[pattern] = []; }
+          _.forEach(localTasks, (task) => { tasks.watch[pattern].push(task); });
+        });
+      }
+    });
+    // Return collected tasks
     return tasks;
   },
   { test: [], build: [], watch: {} });
