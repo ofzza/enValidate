@@ -3,9 +3,10 @@
 // =====================================================================================================================
 
 // Require dependencies
-const util    = require('gulp-util'),
-      less    = require('gulp-less'),
-      minify  = require('gulp-clean-css');
+const argv      = require('minimist')(process.argv.slice(2), { boolean: true }),
+      noop      = require('gulp-noop'),
+      less      = require('gulp-less'),
+      minify    = require('gulp-clean-css');
 
 // Initialize tasks
 module.exports = (gulp) => {
@@ -15,7 +16,7 @@ module.exports = (gulp) => {
     return gulp
       .src('./src/**/*.less')
       .pipe(less())
-      .pipe(util.env.production ? minify() : util.noop())
+      .pipe(argv.production ? minify() : noop())
       .pipe(gulp.dest('./dist'));
   });
 

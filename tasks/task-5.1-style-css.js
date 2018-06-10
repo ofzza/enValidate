@@ -3,7 +3,8 @@
 // =====================================================================================================================
 
 // Require dependencies
-const util    = require('gulp-util'),
+const argv    = require('minimist')(process.argv.slice(2), { boolean: true }),
+      noop    = require('gulp-noop'),
       minify  = require('gulp-clean-css');
 
 // Initialize tasks
@@ -13,7 +14,7 @@ module.exports = (gulp) => {
   gulp.task('build@style-css', () => {
     return gulp
       .src('./src/**/*.css')
-      .pipe(util.env.production ? minify() : util.noop())
+      .pipe(argv.production ? minify() : noop())
       .pipe(gulp.dest('./dist'));
   });
 

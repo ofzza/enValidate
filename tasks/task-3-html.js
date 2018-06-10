@@ -3,7 +3,8 @@
 // =====================================================================================================================
 
 // Require dependencies
-const util    = require('gulp-util'),
+const argv    = require('minimist')(process.argv.slice(2), { boolean: true }),
+      noop    = require('gulp-noop'),
       minify  = require('gulp-htmlmin');
 
 // Initialize tasks
@@ -13,7 +14,7 @@ module.exports = (gulp) => {
   gulp.task('build@html', () => {
     return gulp
       .src('./src/**/*.html')
-      .pipe(util.env.production ? minify({ collapseWhitespace: true, conservativeCollapse: true }) : util.noop())
+      .pipe(argv.production ? minify({ collapseWhitespace: true, conservativeCollapse: true }) : noop())
       .pipe(gulp.dest('./dist'));
   });
 

@@ -3,7 +3,7 @@
 // =====================================================================================================================
 
 // Require dependencies
-const htmllint = require('gulp-html-lint');
+const htmlhint = require('gulp-htmlhint');
 
 // Initialize tasks
 module.exports = (gulp) => {
@@ -12,9 +12,9 @@ module.exports = (gulp) => {
   gulp.task('test@codestyle-html', () => {
     return gulp
       .src(['./**/*.html', '!./node_modules/**/*', '!./dist/**/*'])
-      .pipe(htmllint({ htmllintrc: './.rc-htmllint.json' }))
-      .pipe(htmllint.format());
-    // .pipe(htmllint.failOnError());
+      .pipe(htmlhint('.htmlhintrc', {}))
+      .pipe(htmlhint.reporter());
+    //.pipe(htmlhint.failOnError());
   });
 
   // Return registered tasks
